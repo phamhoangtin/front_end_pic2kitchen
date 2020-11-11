@@ -1,0 +1,185 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@font-face {
+  font-family: "navFont";
+  src: url("/public/font/icielBrandonText-Bold.ttf");
+}
+.button-upload{
+  border-radius: 100px;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-color: rgb(255, 247, 247);
+  color: black;
+  border: 2px solid #555555;
+}
+.button-upload:hover{
+  background-color: #555555;
+  color: white;
+}
+.button-upload span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.4s;
+}
+.button-upload span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.4s;
+}
+.button-upload:hover span {
+  padding-right: 25px;
+}
+
+.button-upload:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+/*Navbar*/
+navbar {
+  margin: 0;
+  padding: 10px;
+  background-color: whitesmoke;
+  display: flex;
+  justify-content: space-between;
+}
+.navlink{
+  display: inline;
+  margin-right: 10px;
+  color:#596264;
+  text-align: center;
+  padding: 5px 10px;
+  text-decoration: none;
+  font-size: larger;
+  font-weight: bold;
+  font: 'navFont';
+  transition-duration: 0.4s;
+  border: none;
+  background: none;
+}
+.navlink:hover{
+  color: #aaa;
+  text-decoration: none;
+}
+.sticky-header{
+  position: -webkit-sticky;
+  position: sticky;
+  top:0;
+  z-index: 1020;
+}
+/*Content*/
+.ingredient-table{
+  width: 100%;
+  animation-duration: 0.4s;
+}
+.ingredient-table th, .ingredient-table td {
+  padding-top:10px;
+  padding:15px;
+
+}
+.ingredient-table th{
+  background-color: #4CAF50;
+  color:#fff;
+}
+.ingredient-table tr:hover {
+  background-color: #ddd;
+  transition: 0.2s;
+}
+h2,h3,h4 {
+  font-weight: bold;
+  color: #494f50;
+}
+.list{
+  padding:5px;
+  overflow: hidden;
+  flex-wrap: unset;
+}
+.list-item{
+  position: relative;
+  flex-direction: column;
+  min-width: 20%;
+  width: 25%;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid #ddd;
+  color: #4b5052;
+  transition-duration: 0.5s;
+}
+.list-item:hover{
+  color: #888787;
+  text-decoration: none;
+}
+.list-btn-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.list-btn{
+  border-radius: 50%;
+  padding: 6px 3px;
+  text-align: center;
+  text-decoration: none;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-color:#fff;
+  font-size: large;
+  border:none;
+  box-shadow: 1px 1px grey;
+  width: 50px;
+  height: 50px;
+  z-index: 1010;
+}
+.list-btn:hover{
+  background-color: #494f50;
+  color: #ddd;
+}
+.list-item .list-text{
+  text-align: center;
+  text-decoration: none;
+  font: "navFont";
+  font-weight: bold;
+  font-size: large;
+}
+/* FOOTER*/
+.footer-top{
+  padding-top: 33px;
+  color: #aaa;
+  text-align: left;
+  background: #333;
+}
+.footer-top p a {
+   color: #aaa;
+   border-bottom:1px dashed #666; 
+  }
+.footer-top h3{
+  padding-bottom: 10px;
+  color: #fff;
+}
+.footer-bottom{
+  padding: 15px 0;
+  background: #444;
+  text-align: left;
+  color: #aaa;
+}
+.footer-social a{
+  margin-right: 10px;
+}
