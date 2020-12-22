@@ -29,13 +29,13 @@ export default function ListOfDishes(prop) {
     }
     return (
         <Row className="list" id="re-list">
-            <div className="list-btn-box" style={{ paddingTop:"6%",position:"absolute"}}>
+            <div className="list-btn-box" style={{marginLeft:"-2%", paddingTop:"5%", position:"absolute"}}>
                 <button className="list-btn" onClick={handleLeft}>
                     <span className="fas fa-chevron-left">
                     </span>
                 </button>
             </div>
-            <div className="list-btn-box" style={{paddingLeft:"95.5%", paddingTop:"6%", position:"absolute" }}>
+            <div className="list-btn-box" style={{paddingLeft:"85.5%", paddingTop:"5%", position:"absolute" }}>
                 <button className="list-btn" onClick={handleRight}>
                     <span className="fas fa-chevron-right">
                     </span>
