@@ -35,12 +35,16 @@ function Login(props) {
                 document.getElementsByClassName('Status')[0].style.color="green"
                 document.getElementsByClassName('Status')[0].innerText ="Log in successful!"
                 await delay(1000);
+                localStorage.setItem('userInfo', loginInfo.email)
                 props.changeLoginState(false)
                 console.log('alo'+document.getElementsByClassName('Status'))
-            }).catch(error => {
+                //window.location.href = "/";
+            }).catch(async error => {
+                console.log(error)
                 document.getElementsByClassName('loader')[0].remove()
                 document.getElementsByClassName('Status')[0].style.color="red"
                 document.getElementsByClassName('Status')[0].innerText ="Can not log in, please check your infomations!"
+                await delay(1000);
             })
     }
 
