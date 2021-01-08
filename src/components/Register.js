@@ -2,27 +2,46 @@ import Axios from 'axios';
 import React, { useState } from 'react'
 import { Button, Modal, Form } from 'react-bootstrap';
 function Register(props) {
-    const [form, setForm] = useState({
+    const [registerInfo, setForm] = useState({
         email: "",
-        password:""
+        pass_word:""
     });
     const handleChange = (event) =>{
-        setForm({[event.target.type]: event.target.value})
+        event.persist()
+        console.log(registerInfo)
+        setForm((prevState) => ({
+            ...prevState,
+            [event.target.name]: event.target.value}))
     }
     const handleClose = () => {
         props.changeRegisState(false)
     }
     const handleSubmit=(event)=>{
         event.preventDefault()
-        console.log(form)
+        console.log(registerInfo)
+        const delay = ms => new Promise(res => setTimeout(res, ms));
+        var loading = document.createElement("div")
+        loading.className = "loader"
         Axios.post(
-            "http:localost:3000/login",
-            form,
-            { withCredentials:true}
-            ).then(res => {
-                console.log('res ' + res)
-            }).catch(error => {
+            "http://139.59.115.198:8000/user/create/",
+            registerInfo,
+            { withCredentials:false}
+            ).then(async res => {
+               
+                console.log(res)
+                document.getElementsByClassName('loader')[0].remove()
+                document.getElementsByClassName('Status')[0].style.color="green"
+                document.getElementsByClassName('Status')[0].innerText ="Sign up successful!"
+                await delay(1000);
+                props.changeRegisState(false)
+                console.log('alo'+document.getElementsByClassName('Status'))
+                //window.location.href = "/";
+            }).catch(async error => {
                 console.log(error)
+                document.getElementsByClassName('loader')[0].remove()
+                document.getElementsByClassName('Status')[0].style.color="red"
+                document.getElementsByClassName('Status')[0].innerText ="Can not sign up, please check your infomations!"
+                await delay(1000);
             })
     }
 
@@ -39,7 +58,7 @@ function Register(props) {
                 <Form onSubmit={handleSubmit}>
                     <Form.Group controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control onChange={handleChange} type="email" placeholder="Enter email" />
+                        <Form.Control onChange={handleChange} name="email" type="email" placeholder="Enter email" />
                         <Form.Text className="text-muted">
                             We'll never share your email with anyone else.
                         </Form.Text>
@@ -47,7 +66,11 @@ function Register(props) {
 
                     <Form.Group controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control onChange={handleChange}type="password" placeholder="Password" />
+                        <Form.Control onChange={handleChange} name="pass_word" type="password" placeholder="Password" />
+                    </Form.Group>
+                    <Form.Group controlId="formBasicPassword">
+                        <Form.Label>Confirm password</Form.Label>
+                        <Form.Control onChange={handleChange} name="confirm_pass_word" type="password" placeholder="Password" />
                     </Form.Group>
                     <Form.Group controlId="formBasicCheckbox">
                         <Form.Check type="checkbox" label="Check me out" />
