@@ -25,7 +25,7 @@ function Login(props) {
 
         document.getElementById("Modal footer").appendChild(loading)
         Axios.post(
-            "http://139.59.115.198:8000/user/login/",
+            "https://www.apipic2kitchen.ga/user/login/",
             loginInfo,
             { withCredentials:false}
             ).then(async res => {

@@ -22,8 +22,9 @@ function Register(props) {
         const delay = ms => new Promise(res => setTimeout(res, ms));
         var loading = document.createElement("div")
         loading.className = "loader"
+        document.getElementById("Modal footer").appendChild(loading)
         Axios.post(
-            "http://139.59.115.198:8000/user/create/",
+            "https://www.apipic2kitchen.ga/user/create/",
             registerInfo,
             { withCredentials:false}
             ).then(async res => {
@@ -34,8 +35,8 @@ function Register(props) {
                 document.getElementsByClassName('Status')[0].innerText ="Sign up successful!"
                 await delay(1000);
                 props.changeRegisState(false)
-                console.log('alo'+document.getElementsByClassName('Status'))
-                //window.location.href = "/";
+                //console.log('alo'+document.getElementsByClassName('Status'))
+                window.location.href = "/";
             }).catch(async error => {
                 console.log(error)
                 document.getElementsByClassName('loader')[0].remove()
@@ -75,9 +76,12 @@ function Register(props) {
                     <Form.Group controlId="formBasicCheckbox">
                         <Form.Check type="checkbox" label="Check me out" />
                     </Form.Group>
+                    <div id="Modal footer" className="row" style={{justifyContent:"space-between"}}>
                     <Button variant="primary"  type="submit">
-                        Log in
+                        Sign up
                     </Button>
+                    <p className="Status" ></p>
+                    </div>
                 </Form>
                 </Modal.Body>
                 <Modal.Footer>
