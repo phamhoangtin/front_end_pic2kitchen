@@ -4,11 +4,17 @@ let startIndex = 0;
 export default function ListOfDishes(prop) {
     const [styleX, setStyleX] = useState({visibility: "hidden", transform:""});
     useEffect(() => {
-        var i = 0;     
+        var i = 0;
+      
+        console.log(prop.list)  
+      
+        prop.list.map((item) =>{
+            console.log('item: '+ item)
+        })
         for (i = 0; i < prop.list.length; i++){
             document.getElementById(prop.pre_id + 'item-' + i).style.visibility="hidden";
         }
-        for (i = startIndex; i < startIndex + 5; i++){
+        for (i = startIndex; i < Math.min(startIndex + 4, prop.list.length); i++){
             console.log('index i: ', i)
             document.getElementById(prop.pre_id + 'item-' + i).style.visibility="";
         }
@@ -18,14 +24,14 @@ export default function ListOfDishes(prop) {
         var col12 = document.getElementById('re-list').getBoundingClientRect().width;
         startIndex = startIndex - 1;
         if (startIndex < 0 ) startIndex+=1;
-        setStyleX({transform:"translateX("+ -col12/5.0 * startIndex +"px)"})
+        setStyleX({transform:"translateX("+ -col12 / 4.0 * startIndex +"px)"})
     }
     const handleRight = () => {
         console.log(startIndex);
         var col12 = document.getElementById('re-list').getBoundingClientRect().width;
         startIndex = startIndex + 1; 
-        if (startIndex > prop.list.length - 5) startIndex-=1;
-        setStyleX({transform:"translateX("+ -col12 / 5.0 * startIndex +"px)"})
+        if (startIndex > prop.list.length - 4) startIndex-=1;
+        setStyleX({transform:"translateX("+ -col12 / 4.0 * startIndex +"px)"})
     }
     return (
         <Row className="list" id="re-list">
@@ -44,9 +50,9 @@ export default function ListOfDishes(prop) {
             {prop.list.map((ingredient) => (
                 <a href="/dish/1" className="list-item" 
                     id={prop.pre_id + "item-" + prop.list.indexOf(ingredient)} style={styleX}>
-                    <img className="card-img-top" src={ingredient.thumbnail}
-                        alt={ingredient.title} />
-                    <p className="list-text">{ingredient.title}</p>
+                    <img className="card-img-top" src={ingredient.img}
+                        alt={ingredient.name} />
+                    <p className="list-text">{ingredient.name}</p>
                 </a>
             ))}      
         </Row>

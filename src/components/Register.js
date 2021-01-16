@@ -8,6 +8,25 @@ function Register(props) {
     });
     const handleChange = (event) =>{
         event.persist()
+        if (event.target.name === "confirm_pass_word") 
+            {
+                let statusText = ""
+                if (event.target.value !== registerInfo.pass_word)
+                    {
+                        statusText = "Confirm password not match!"
+                        document.getElementsByClassName('Status')[0].style.color="red"
+                        document.getElementsByClassName('Status')[0].innerText = statusText
+                        document.getElementById("Sign Up").disabled = true
+                    }
+                else
+                {
+                    statusText = "Confirm password is match!"
+                    document.getElementsByClassName('Status')[0].style.color="green"
+                    document.getElementsByClassName('Status')[0].innerText = statusText
+                    document.getElementById("Sign Up").disabled = false
+                }
+                    
+            }
         console.log(registerInfo)
         setForm((prevState) => ({
             ...prevState,
@@ -17,6 +36,7 @@ function Register(props) {
         props.changeRegisState(false)
     }
     const handleSubmit=(event)=>{
+        let errorText = "Can not sign up, please check your infomations!"
         event.preventDefault()
         console.log(registerInfo)
         const delay = ms => new Promise(res => setTimeout(res, ms));
@@ -41,7 +61,7 @@ function Register(props) {
                 console.log(error)
                 document.getElementsByClassName('loader')[0].remove()
                 document.getElementsByClassName('Status')[0].style.color="red"
-                document.getElementsByClassName('Status')[0].innerText ="Can not sign up, please check your infomations!"
+                document.getElementsByClassName('Status')[0].innerText = errorText
                 await delay(1000);
             })
     }
@@ -77,7 +97,7 @@ function Register(props) {
                         <Form.Check type="checkbox" label="Check me out" />
                     </Form.Group>
                     <div id="Modal footer" className="row" style={{justifyContent:"space-between"}}>
-                    <Button variant="primary"  type="submit">
+                    <Button id = "Sign Up"style={{marginLeft:"14px"}} variant="primary"  type="submit">
                         Sign up
                     </Button>
                     <p className="Status" ></p>

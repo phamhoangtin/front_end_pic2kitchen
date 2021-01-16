@@ -42,12 +42,12 @@ function Content() {
     return (
             <Container fluid className="col-12" style={contentStyle}>
                 <Row className="justify-content-center " >
-                    <div className="col-3" style={{ paddingTop: "23%", paddingLeft: "40px" }}>
+                    <div className="col-3" style={{ paddingTop: "23%", paddingLeft: "5%" }}>
                         <Logo style={logoStyle} />
                     </div>
                 </Row>
                 <Row className="justify-content-center">
-                    <div className="col-4" style={{paddingBottom:"19%"}}>
+                    <div className="col-2 col-sm-4 " style={{paddingBottom:"19%"}}>
                         <Form onSubmit={handleSubmit} redirect="/">
                             <Row className="justify-content-center">
                                 <div className="custom-file m-4">

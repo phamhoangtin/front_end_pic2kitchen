@@ -38,7 +38,7 @@ function Login(props) {
                 localStorage.setItem('userInfo', loginInfo.email)
                 props.changeLoginState(false)
                 console.log('alo'+document.getElementsByClassName('Status'))
-                //window.location.href = "/";
+                window.location.href = "/dishes";
             }).catch(async error => {
                 console.log(error)
                 document.getElementsByClassName('loader')[0].remove()
@@ -74,7 +74,7 @@ function Login(props) {
                         <Form.Check type="checkbox" label="Check me out" />
                     </Form.Group>
                     <div id="Modal footer" className="row" style={{justifyContent:"space-between"}}>
-                    <Button style={{marginLeft:"14px"}}variant="primary"  type="submit">
+                    <Button style={{marginLeft:"14px"}} variant="primary"  type="submit">
                         Log in
                     </Button>
                         <p className="Status" ></p>
