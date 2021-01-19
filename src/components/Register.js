@@ -36,7 +36,7 @@ function Register(props) {
         props.changeRegisState(false)
     }
     const handleSubmit=(event)=>{
-        let errorText = "Can not sign up, please check your infomations!"
+        let errorText = "This email are already registed"
         event.preventDefault()
         console.log(registerInfo)
         const delay = ms => new Promise(res => setTimeout(res, ms));
