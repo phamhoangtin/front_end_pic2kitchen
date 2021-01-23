@@ -3,6 +3,7 @@ import { Container, Row } from 'react-bootstrap';
 import ListOfDishes from './ListOfDishes'
 import Axios from 'axios';
 function Dish() {
+    const LIST_LENGHT=8
     const [Detail, setDetail] = useState({
         img:"",
         name:"",
@@ -15,7 +16,7 @@ function Dish() {
             { withCredentials:false}
             ).then(async res => {
                 res.data.data.map((dish)=>{
-                    dish.img = dish.img.replace('555x240', '')
+                    dish.img = dish.img.replace('555x240', '360x225')
                 })
                 console.log(res)
                 setDetail(res.data.data[0])
@@ -40,8 +41,8 @@ function Dish() {
                         </tr>
                         {Detail.components.map(ingredient => 
                             <tr>
-                                <td>  {ingredient.name} </td>
-                                <td> {ingredient.quantity + ingredient.unit}</td>
+                                <td> {ingredient.name} </td>
+                                <td> {ingredient.quantity + ' ' + ingredient.unit}</td>
                             </tr>
                         )}
                     </table>
@@ -55,7 +56,7 @@ function Dish() {
             </Row>
             <Row>
                 <div className="col-12">
-                    <ListOfDishes list={List} /> 
+                    <ListOfDishes list={List.slice(0,  LIST_LENGHT)} /> 
                 </div>
             </Row>
         </Container>

@@ -8,6 +8,10 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Dish from './components/Dish';
 import Dishes from './components/Dishes';
+import Recommendation from './components/Recommendation';
+import Trending from './components/Trending';
+import History from './components/History';
+
 function App(){
   const [login, setLogin] = useState(false);
   const [regis, setRegis] = useState(false);
@@ -28,6 +32,9 @@ function App(){
               <Route exact path="/dish/:id" component={Dish}/>
               <Route exact path="/dishes" component={Dishes}/>
               <Route exact path="/"  component={Content} />
+              <Route exact path="/recommendation" component={Recommendation} />
+              <Route exact path="/trending" component={Trending} />
+              <Route exact path="/history" component={History}/>
            </Switch>
           <Footer/>
         </div>

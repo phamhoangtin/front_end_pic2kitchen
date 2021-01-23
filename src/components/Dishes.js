@@ -3,7 +3,7 @@ import { Container, Row } from 'react-bootstrap';
 import ListOfDishes from './ListOfDishes'
 import Axios from 'axios';
 function Dishes() {
-    const [seeMore, setSeeMore] = useState(false)
+    const LIST_LENGHT = 8
     const [List, setList] = useState({
         recommendation: [],
         trending: [],
@@ -91,10 +91,6 @@ function Dishes() {
                  
         // save response to variable
     }, [])
-    const handleMore = () =>{
-        setSeeMore(!seeMore)
-        console.log(seeMore)
-    }
     return (
         <Container fluid className="col-12 " >
             <Row>
@@ -103,26 +99,41 @@ function Dishes() {
                 </div>
                 <div className="col-12 ">
                     
-                    <ListOfDishes list={List.recommendation} pre_id="Re"/>
-                </div>
-                {/* <button className="navlink" style={{marginLeft:"80%"}} onClick={handleMore}>
+                    <ListOfDishes  list={List.recommendation.slice(0,  LIST_LENGHT)} pre_id="Re"/>
+                <Row className="justify-content-center">
+                    <a href={"/recommendation"} className="navlink">
                     See more
-                </button> */}
+                    </a>
+                </Row>
+                    
+                </div>
+                
             </Row>
             <Row>
                 <div className="col-sm-12 col-md-3 pl-4">
                     <h4>Trending</h4>
                 </div>
                 <div className="col-12">
-                    <ListOfDishes list={List.trending} pre_id="Tr"/> 
+                    <ListOfDishes list={List.trending.slice(0,  LIST_LENGHT)} pre_id="Tr"/> 
+                    <Row className="justify-content-center">
+                    <a href={"/trending"} className="navlink">
+                    See more
+                    </a>
+                </Row>
                 </div>
+                
             </Row>
             <Row>
                 <div className="col-sm-12 col-md-3 pl-4">
                     <h4>History</h4>
                 </div>
                 <div className="col-12">
-                    <ListOfDishes list={List.history} pre_id="Hi"/> 
+                    <ListOfDishes list={List.history.slice(0,  LIST_LENGHT)} pre_id="Hi"/> 
+                    <Row className="justify-content-center">
+                    <a href={"/history"} className="navlink">
+                    See more
+                    </a>
+                </Row>
                 </div>
             </Row>
         </Container>
