@@ -119,8 +119,8 @@ navbar {
   animation-duration: 0.4s;
 }
 .ingredient-table th, .ingredient-table td {
-  padding-top:10px;
-  padding:15px;
+  padding-top:5px;
+  padding:10px;
 
 }
 .ingredient-table th{

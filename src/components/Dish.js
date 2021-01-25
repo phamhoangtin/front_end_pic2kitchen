@@ -2,6 +2,7 @@ import React, {useState,  useEffect } from 'react'
 import { Container, Row } from 'react-bootstrap';
 import ListOfDishes from './ListOfDishes'
 import Axios from 'axios';
+import { findAllByDisplayValue } from '@testing-library/react';
 function Dish() {
     const LIST_LENGHT=8
     const [Detail, setDetail] = useState({
@@ -16,7 +17,7 @@ function Dish() {
             { withCredentials:false}
             ).then(async res => {
                 res.data.data.map((dish)=>{
-                    dish.img = dish.img.replace('555x240', '360x225')
+                    dish.img = dish.img.replace('555x240', '')
                 })
                 console.log(res)
                 setDetail(res.data.data[0])
@@ -28,8 +29,8 @@ function Dish() {
     }, [])
     return (
         <Container fluid className="col-12" >
-            <Row className="my-3">
-                <div className="col-6">
+            <Row className="my-3 justify-content-center">
+                <div className="col-5">
                     <img style={{position: "relative", height: "auto", width: "100%" }} src={Detail.img} alt="main"/>
                 </div>
                 <div className="col-6">
@@ -42,7 +43,7 @@ function Dish() {
                         {Detail.components.map(ingredient => 
                             <tr>
                                 <td> {ingredient.name} </td>
-                                <td> {ingredient.quantity + ' ' + ingredient.unit}</td>
+                                <td dangerouslySetInnerHTML={{__html: ingredient.quantity + ' ' + ingredient.unit}}/>
                             </tr>
                         )}
                     </table>

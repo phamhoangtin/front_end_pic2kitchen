@@ -14,7 +14,7 @@ function Header(props) {
   console.log('login ' + isLoggedIn);
   return (
     <Container fluid className="sticky-header px-0">
-      <navbar className="col-md-12 px-0 ">
+      <navbar className="col-md-12 px-0 py-1">
         <div>
           <a className="navlink" href="/">
             <img
@@ -29,7 +29,7 @@ function Header(props) {
           <a className="navlink" href="/dishes" > Dishes </a>
           <a className="navlink" href="/about" >About</a>
           {isLoggedIn 
-            ? <button className="navlink" variant="light">{localStorage.userInfo}</button>
+            ? <a className="navlink" href={"/profile/"+localStorage.userInfo} variant="light">{localStorage.userInfo}</a>
             : <button className="navlink" onClick={props.isLogin.bind(true)} variant="light">Log in</button>}
           {isLoggedIn
             ? <button className="navlink" onClick={handleLogout.bind()} variant="light">Log out</button>

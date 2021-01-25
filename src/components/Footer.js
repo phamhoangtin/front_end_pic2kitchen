@@ -20,15 +20,15 @@ function Footer() {
                         </div>
                         <div className="col-sm-12 col-md-4" >
                             <h3>Contact us</h3>
-                            <p><i className="fas fa-map-marker-alt"></i> Via Rossini 10, 10136 Turin Italy</p>
-                            <p><i className="fas fa-phone"></i> Phone: (0039) 333 12 68 347</p>
-                            <p><i className="fas fa-envelope"></i> Email: <a href="mailto:hello@domain.com">hello@domain.com</a></p>
-                            <p><i className="fab fa-skype"></i> Skype: you_online</p>
+                            <p><i className="fas fa-map-marker-alt"></i>227 Nguyễn Văn Cừ street, District 5, Ho Chi Minh city</p>
+                            <p><i className="fas fa-phone"></i> Phone: +84 793860036</p>
+                            <p><i className="fas fa-envelope"></i> Email: <a href="mailto:hello@domain.com">nhluan.12tin@gmail.com</a></p>
+                            
                         </div>
                         <div className="col-sm-12 col-md-4 footer-social" >
                             <h3>Follow us</h3>
                             <p>
-                                <a href="/"><i className="fab fa-facebook"></i></a>
+                                <a href="https://www.facebook.com/us.vnuhcm"><i className="fab fa-facebook"></i></a>
                                 <a href="/"><i className="fab fa-twitter"></i></a>
                                 <a href="/"><i className="fab fa-google-plus-g"></i></a>
                                 <a href="/"><i className="fab fa-instagram"></i></a>
@@ -45,18 +45,18 @@ function Footer() {
                     <Row >
                         <div className="col-md-5 text-center footer-copy">
                         <p>
-                            Copyright © 2020
+                            Copyright © 2021
                         </p>
                         </div>
                         <div className="col-md-7 footer-menu">
-                        <Nav className="navbar navbar-dark navbar-expand-md">
+                        <Nav className="navbar navbar-light navbar-expand-md">
 							    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 							        <span className="navbar-toggler-icon"></span>
 							    </button>
-							    <div className="collapse navbar-collapse" id="navbarNav">
+							    <div className="collapse navbar-collapse " id="navbarNav">
 							        <ul className="navbar-nav ml-auto">
 							            <li className="nav-item">
-							                <a className="nav-link scroll-link" href="/">Top</a>
+							                <a className="nav-link scroll-link" href="#" style={{color:"#aaa"}}>Top</a>
 							            </li>
 							        </ul>
 							    </div>
