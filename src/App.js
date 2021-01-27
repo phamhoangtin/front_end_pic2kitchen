@@ -29,7 +29,7 @@ function App(){
           <Login isLogin={login} changeLoginState={changeLoginState}/>
           <Register isRegis={regis} changeRegisState={changeRegisState}/>
            <Switch>
-              <Route exact path="/dish/:id" component={Dish}/>
+              <Route exact path="/dish/:topic/:id" component={Dish}/>
               <Route exact path="/dishes" component={Dishes}/>
               <Route exact path="/"  component={Content} />
               <Route exact path="/recommendation" component={Recommendation} />

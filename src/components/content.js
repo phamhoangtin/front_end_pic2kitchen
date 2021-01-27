@@ -4,6 +4,7 @@ import { ReactComponent as Logo } from './logo.svg';
 import Form from 'react-bootstrap/Form';
 import axios from 'axios';
 const BACKGROUND = 'img/background.jpg';
+let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJFbWFpbCI6Im5vdCBsb2dpbiIsIklEIjotMX0.gQ_c05DxXLKvioGWwKjjp6KOuvzTOrKhE-v3eYeUX5U"
 var contentStyle = {
     height: "100%",
     backgroundRepeat: "no-repeat",
@@ -18,20 +19,27 @@ var logoStyle = {
 }
 
 function Content() {
+    if (localStorage.getItem('token') !== null){
+        token = localStorage.getItem('token')
+       }
     const [file, setFile] = useState(null);
+    const [result, setResult] = useState({});
     useEffect(() => {
         console.log(file)
     }, [file])
     const handleSubmit = (event) => {
         event.preventDefault()
+        console.log(token);
         var formData = new FormData();
-        formData.append("image", file);
-        axios.post("http://127.0.0.1:5000/image", file, {
+        formData.append("Image", file);
+        axios.post("https://www.apipic2kitchen.ga/image/predict/", formData, {
             headers: {
-                'Content-Type': 'multipart/form-data'
-            }
+                'Content-Type': 'multipart/form-data',
+                'Authorization': `Bearer ${token}`
+            } 
         }).then(function (res) {
             console.log(res);
+            setResult(res.data);
         }).catch(function (error) {
             console.log(error);
         });
@@ -48,7 +56,7 @@ function Content() {
                 </Row>
                 <Row className="justify-content-center">
                     <div className="col-2 col-sm-4 " style={{paddingBottom:"19%"}}>
-                        <Form onSubmit={handleSubmit} redirect="/">
+                        <Form onSubmit={handleSubmit}>
                             <Row className="justify-content-center">
                                 <div className="custom-file m-4">
                                     <input type="file" name="file" className="custom-file-input" id="customFile" onChange={handleChange} />
@@ -57,11 +65,16 @@ function Content() {
                                 <button type="submit" className="button-upload">
                                     <span>
                                         Upload
-                                </span>
+                                    </span>
                                 </button>
                             </Row>
                         </Form>
                     </div>
+                </Row>
+                <Row className="justify-content-center">
+                    <div className = "col-4">
+                        <img style={{ position: "relative", height: "auto", width: "100%" }} src={result.link_img_detect} alt="" />
+                    </div> 
                 </Row>
             </Container>
     );

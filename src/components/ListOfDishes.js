@@ -48,7 +48,7 @@ export default function ListOfDishes(prop) {
                 </button>
             </div> */}
             {prop.list.map((dish) => (
-                <a href={"/dish/" + dish._id} className="list-item"
+                <a href={"/dish/" + dish.topic +"/"+ dish._id} className="list-item"
                     id={prop.pre_id + "item-" + prop.list.indexOf(dish)}>
                     <img className="card-img-top" src={dish.img}
                         alt={dish.name} />

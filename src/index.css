@@ -61,6 +61,7 @@ navbar {
   background-color: whitesmoke;
   display: flex;
   justify-content: space-between;
+  border-bottom: 5px
 }
 .navlink{
   display: inline;
@@ -119,9 +120,10 @@ navbar {
   animation-duration: 0.4s;
 }
 .ingredient-table th, .ingredient-table td {
-  padding-top:5px;
-  padding:10px;
-
+  padding:1%;
+}
+.ingredient-table td{
+  font-size: 14px;
 }
 .ingredient-table th{
   background-color: #4CAF50;
@@ -135,7 +137,6 @@ h2,h3,h4 {
   font-weight: bold;
   color: #494f50;
 }
-
 .list{
   width: 95%;
   padding:5px;

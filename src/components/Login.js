@@ -36,6 +36,7 @@ function Login(props) {
                 document.getElementsByClassName('Status')[0].innerText ="Log in successful!"
                 await delay(1000);
                 localStorage.setItem('userInfo', loginInfo.email)
+                localStorage.setItem('token', res.data.token)
                 props.changeLoginState(false)
                 console.log('alo'+document.getElementsByClassName('Status'))
                 window.location.href = "/dishes";

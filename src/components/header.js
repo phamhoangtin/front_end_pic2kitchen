@@ -28,7 +28,7 @@ function Header(props) {
         <div>
           <a className="navlink" href="/dishes" > Dishes </a>
           <a className="navlink" href="/about" >About</a>
-          {isLoggedIn 
+          {isLoggedIn
             ? <a className="navlink" href={"/profile/"+localStorage.userInfo} variant="light">{localStorage.userInfo}</a>
             : <button className="navlink" onClick={props.isLogin.bind(true)} variant="light">Log in</button>}
           {isLoggedIn
