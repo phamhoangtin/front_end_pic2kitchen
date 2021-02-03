@@ -11,7 +11,7 @@ var logoStyle = {
 }
 
 function Content() {
-    if (localStorage.getItem('token') !== null) {
+    if (localStorage.getItem('userInfo') !== null) {
         token = localStorage.getItem('token')
     }    
     const [file, setFile] = useState(null);
