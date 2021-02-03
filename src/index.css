@@ -10,6 +10,26 @@ body {
   font-family: "navFont";
   src: url("/public/font/icielBrandonText-Bold.ttf");
 }
+.content-style{
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-image: url('background.jpg');
+  background-attachment: scroll;
+}
+
+.logo{
+  padding-top: 20%;
+  padding-left: 5% 
+}
+@media(max-width: 768px){
+  .content-style{
+    background-image: url('background\ -\ 700.jpg');
+  }
+  .logo{
+    padding-top: 28%;
+  }
+}
+
 .button-upload{
   border-radius: 100px;
   padding: 16px 32px;
@@ -65,10 +85,10 @@ navbar {
 }
 .navlink{
   display: inline;
-  margin-right: 10px;
+  margin-right: 5%;
   color:#596264;
   text-align: center;
-  padding: 5px 10px;
+  padding: 0.5% 1%px;
   text-decoration: none;
   font-size: larger;
   font-weight: bold;

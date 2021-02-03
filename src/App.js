@@ -12,6 +12,7 @@ import Recommendation from './components/Recommendation';
 import Trending from './components/Trending';
 import History from './components/History';
 import Profile from './components/Profile';
+import Result from './components/Result';
 function App(){
   const [login, setLogin] = useState(false);
   const [regis, setRegis] = useState(false);
@@ -36,6 +37,7 @@ function App(){
               <Route exact path="/trending" component={Trending} />
               <Route exact path="/history" component={History}/>
               <Route exact path="/profile/:id" component={Profile}/>
+              <Route exact path="/result/:image" component={Result}/>
            </Switch>
           <Footer/>
         </div>

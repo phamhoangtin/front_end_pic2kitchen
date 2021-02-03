@@ -67,9 +67,6 @@ function Dish() {
                             <div className="col-4">
                                 <p>{"Mức độ: " + Detail.level}</p> 
                             </div>
-                            <div className="col-4">
-                                <p>{"Loại món: " + Detail.topic_name}</p> 
-                            </div>
                         </div>
                         
                     </Row>

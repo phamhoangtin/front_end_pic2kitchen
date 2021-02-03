@@ -34,7 +34,7 @@ export default function ListOfDishes(prop) {
         setStyleX({transform:"translateX("+ -col12 / 4.0 * startIndex +"px)"})
     }
     return (
-        <Row className="list" id="re-list">
+        <Row className="list justify-content-start" id="re-list">
             {/* <div className="list-btn-box" style={{marginLeft:"-2%", paddingTop:"5%", position:"absolute"}}>
                 <button className="list-btn" onClick={handleLeft}>
                     <span className="fas fa-chevron-left">

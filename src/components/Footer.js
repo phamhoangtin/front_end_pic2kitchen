@@ -2,7 +2,7 @@ import React from 'react'
 import { Row, Container, Nav } from 'react-bootstrap'
 function Footer() {
     return (
-        <footer >
+        <footer className = "mt-5">
             <div className="footer-top">
                 <Container>
                     <Row >
