@@ -47,7 +47,7 @@ function Content() {
             }).then(function (res) {
                 console.log(res);
                 setResult(res.data);
-                window.location.href = "/result/"+res.data.link_img_detect.substring(54,71)
+                window.location.href = "/result/"+res.data.link_img_detect.match("predict\/([0-9.]*)\.jpg")[1]
             }).catch(function (error) {
                 console.log(error);
                 setUpLoad(( 
