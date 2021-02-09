@@ -47,7 +47,7 @@ function Content() {
             }).then(function (res) {
                 console.log(res);
                 setResult(res.data);
-                window.location.href = "/result/"+res.data.link_img_detect.match("predict\/([0-9.]*)\.jpg")[1]
+                window.location.href = "/result/"+res.data.link_img_detect.match("predict\/([0-9.a-z\/]*)\.jpg")[1]
             }).catch(function (error) {
                 console.log(error);
                 setUpLoad(( 
@@ -73,7 +73,7 @@ function Content() {
                 </div>
             </Row>
             <Row className="justify-content-center">
-                <div className="col-lg-4 col-md-3 col-2 " style={{ paddingBottom: "19%" }}>
+                <div className="col-lg-4 col-md-6 col-8 " style={{ paddingBottom: "19%" }}>
                     <Form onSubmit={handleSubmit}>
                         <Row className="justify-content-center">
                             <div className="custom-file m-4">

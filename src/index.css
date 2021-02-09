@@ -135,6 +135,9 @@ navbar {
   100% { transform: rotate(360deg); }
 }
 /*Content*/
+.custom-file-label{
+  font-size: large;
+}
 .ingredient-table{
   width: 100%;
   animation-duration: 0.4s;

@@ -38,6 +38,7 @@ function App(){
               <Route exact path="/history" component={History}/>
               <Route exact path="/profile/:id" component={Profile}/>
               <Route exact path="/result/:image" component={Result}/>
+              <Route exact path="/result/:id/:image" component={Result}/>
            </Switch>
           <Footer/>
         </div>

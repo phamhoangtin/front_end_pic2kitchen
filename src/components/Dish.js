@@ -75,7 +75,8 @@ function Dish() {
             </Row>
             <Row className="my-3 justify-content-center">
                 <div className="col-8">
-                    <p dangerouslySetInnerHTML={{ __html: "Miêu tả: " + Detail.des }} />
+                    <h5>Miêu tả: </h5>
+                    <p dangerouslySetInnerHTML={{ __html: Detail.des }} />
                 </div>
 
             </Row>
