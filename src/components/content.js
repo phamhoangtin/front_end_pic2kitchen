@@ -47,7 +47,7 @@ function Content() {
             }).then(function (res) {
                 console.log(res);
                 setResult(res.data);
-                window.location.href = "/result/"+res.data.link_img_detect.match("predict\/([0-9.a-z\/]*)\.jpg")[1] + "?predict=" + encodeURIComponent(JSON.stringify(res.data.object))
+                window.location.href = "/result/"+res.data.link_img_detect.match("predict\/([a-z0-9]*\/?[0-9\.]*[0-9]+\.[a-z]*)")[1] + "?predict=" + encodeURIComponent(JSON.stringify(res.data.object))
             }).catch(function (error) {
                 console.log(error);
                 setUpLoad(( 

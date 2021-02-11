@@ -37,11 +37,11 @@ function Result() {
     let query = useQuery()
     let predict = query.get("predict")
     if (predict == null) predict = "[]"
-    let imageURL = "https://www.apipic2kitchen.ga/media/not_login/predict/" + image + ".jpg"
+    let imageURL = "https://www.apipic2kitchen.ga/media/not_login/predict/" + image
     const [List, setList] = useState([])
 
     if (localStorage.getItem('userInfo') !== null)
-        imageURL = "https://www.apipic2kitchen.ga/media/login/predict/" + id + "/" + image + ".jpg"
+        imageURL = "https://www.apipic2kitchen.ga/media/login/predict/" + id + "/" + image
     const [Detail, setDetail] = useState({
         img: "",
         name: "",
