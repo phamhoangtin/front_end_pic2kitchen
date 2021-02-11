@@ -51,15 +51,15 @@ function Result() {
     const [recommendedPredict, setRecommendedPredict] = useState(JSON.parse(predict))
     const [recommendedOptional, setRecommendedOptional] = useState([])
     const handleClick = () => {
-      setRecommendedOptional([...recommendedOptional,"Seafood"])
+        setRecommendedOptional([...recommendedOptional, "Seafood"])
     }
-    const handleRemove = (index) =>{
+    const handleRemove = (index) => {
         const list = [...recommendedOptional];
         console.log(index)
         list.splice(index, 1);
         setRecommendedOptional(list);
     }
-    const handleChange = (event, index) =>{
+    const handleChange = (event, index) => {
         event.persist()
         let List = [...recommendedOptional]
         List[index] = event.target.value
@@ -88,7 +88,7 @@ function Result() {
         ).then(async res => {
             console.log(res)
             document.getElementsByClassName('spinner-grow text-danger')[0].remove()
-            document.getElementsByClassName('Status')[0].innerText =""
+            document.getElementsByClassName('Status')[0].innerText = ""
             const tmp = res.data.data.map((dish) => {
                 return (
                     Axios.post(
@@ -113,8 +113,8 @@ function Result() {
             })
         }).catch(async error => {
             console.log(error)
-            document.getElementsByClassName('Status')[0].style.color="red"
-            document.getElementsByClassName('Status')[0].innerText ="Please try again!"
+            document.getElementsByClassName('Status')[0].style.color = "red"
+            document.getElementsByClassName('Status')[0].innerText = "Please try again!"
         })
     }
     useEffect(() => {
@@ -149,29 +149,36 @@ function Result() {
                         {recommendedPredict.map(ingredient =>
                             <div class="form-check">
                                 <label style={{ fontSize: "large" }} class="form-check-label">
-                                    <input type="checkbox" id={"check-" + recommendedPredict.indexOf({ ingredient })} class="form-check-input" value={ingredient} />
+                                    <input type="checkbox" id={"check-" + recommendedPredict.indexOf({ ingredient })} class="form-check-input" value={ingredient} checked="checked"/>
                                     {INGREDIENT_VIETNAMESE[ingredient]}
                                 </label>
                             </div>
                         )}
 
-                        <div className="form-group" id="more-recommend">
+                        <div className="form-group col-12" id="more-recommend">
                             {recommendedOptional.map((x, i) =>
-                                <div>
-                                    <label>Optional</label>
-                                    <select className="form-control" onChange={event =>handleChange(event,i)}>
-                                        {Object.keys(INGREDIENT_VIETNAMESE).map((key) =>
-                                            <option value={key} selected={key === x && "selected"} >{INGREDIENT_VIETNAMESE[key]}</option>
-                                        )}
-                                    </select>
-                                    <Row className="justify-content-around">
-                                        {recommendedOptional.length !== 0 && <Button onClick={() => handleRemove(i)} className="btn btn-danger py-1 my-2"><span className="fas fa-minus"></span></Button>}
-                                    </Row>
-                                </div>
+                                <Row>
+                                    <div className="col-12">
+                                        <label>Optional</label>
+                                        <Row>
+                                            <div className="col-10">
+                                                <select className="form-control" onChange={event => handleChange(event, i)}>
+                                                    {Object.keys(INGREDIENT_VIETNAMESE).map((key) =>
+                                                        <option value={key} selected={key === x && "selected"} >{INGREDIENT_VIETNAMESE[key]}</option>
+                                                    )}
+                                                </select>
+                                            </div>
+                                            <div className="col-2 m-0 p-0">
+                                                {recommendedOptional.length !== 0 && <Button onClick={() => handleRemove(i)} className="btn btn-danger"><span className="fas fa-minus"></span></Button>}
+                                            </div>
+                                        </Row>
+
+                                    </div>
+                                </Row>
                             )}
                             <Button onClick={handleClick} className="btn btn-secondary py-1 my-2">
-                                            <span className="fas fa-plus"></span>
-                                        </Button>
+                                <span className="fas fa-plus"></span>
+                            </Button>
                         </div>
                         <Button className="my-5" variant="primary" type="submit">
                             Confirm
