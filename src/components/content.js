@@ -56,6 +56,9 @@ function Content() {
                             Upload
                         </span>
                     </button>))
+                if (error.mess==="token is expected time") {
+                    setFileText("Login session has expired! Please sign out and login again")
+                }
                 setFileText("There are an error, please try again")
             });
         }

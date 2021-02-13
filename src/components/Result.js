@@ -67,6 +67,11 @@ function Result() {
     }
     const handleSubmit = (event) => {
         event.preventDefault()
+        if (localStorage.getItem('userInfo') == null) {
+                document.getElementsByClassName('Status')[0].style.color = "red"
+                document.getElementsByClassName('Status')[0].innerText = "Please login to get recommanded dishes!"
+                return ;
+            }
         let recommendedChoose = []
         let getCheckedBoxes = document.querySelectorAll('input[type=checkbox]:checked')
         for (var i = 0; i < getCheckedBoxes.length; i++) {
@@ -149,7 +154,7 @@ function Result() {
                         {recommendedPredict.map(ingredient =>
                             <div class="form-check">
                                 <label style={{ fontSize: "large" }} class="form-check-label">
-                                    <input type="checkbox" id={"check-" + recommendedPredict.indexOf({ ingredient })} class="form-check-input" value={ingredient} checked="checked"/>
+                                    <input type="checkbox" id={"check-" + recommendedPredict.indexOf({ ingredient })} class="form-check-input" value={ingredient} defaultChecked="true"/>
                                     {INGREDIENT_VIETNAMESE[ingredient]}
                                 </label>
                             </div>
