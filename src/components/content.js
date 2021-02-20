@@ -49,7 +49,7 @@ function Content() {
                 setResult(res.data);
                 window.location.href = "/result/"+res.data.link_img_detect.match("predict\/([a-z0-9]*\/?[0-9\.]*[0-9]+\.[a-z]*)")[1] + "?predict=" + encodeURIComponent(JSON.stringify(res.data.object))
             }).catch(function (error) {
-                console.log(error);
+                console.log(error.response)
                 setUpLoad(( 
                     <button type="submit" className="button-upload">
                         <span>

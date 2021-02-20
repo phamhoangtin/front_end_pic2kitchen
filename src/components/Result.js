@@ -32,16 +32,7 @@ const INGREDIENT_VIETNAMESE = {
 function useQuery() {
     return new URLSearchParams(useLocation().search);
 }
-function imageExists(image_url){
 
-    var http = new XMLHttpRequest();
-
-    http.open('HEAD', image_url, false);
-    http.send();
-
-    return http.status != 404;
-
-}
 function Result() {
     const { id, image } = useParams();
     let query = useQuery()
@@ -49,9 +40,9 @@ function Result() {
     if (predict == null) predict = "[]"
     
     let imageURL = "https://www.apipic2kitchen.ga/media/not_login/predict/" + image
-    // if (!imageExists(imageURL)) {
-    //     imageURL =  "https://www.apipic2kitchen.ga/media/login/predict/" + id + "/" + image
-    // }
+    if (id!== undefined) {
+        imageURL =  "https://www.apipic2kitchen.ga/media/login/predict/" + id + "/" + image
+    }
     const [List, setList] = useState([])
 
     // if (localStorage.getItem('userInfo') !== null)
@@ -160,7 +151,7 @@ function Result() {
             </Row>
             <Row className="my-3 justify-content-around">
                 <div className="col-6">
-                    <img style={{ position: "relative", height: "auto", width: "100%" }} src={imageURL} onerror={"this.src="+ "'https://www.apipic2kitchen.ga/media/login/predict/" + id + "/" + image +"'" } alt="main" />
+                    <img style={{ position: "relative", height: "auto", width: "100%" }} src={imageURL} alt="main" />
                 </div>
                 <div className="col-4">
                     <h4 className="my-4">Please select the ingredient that may appear in the picture</h4>
