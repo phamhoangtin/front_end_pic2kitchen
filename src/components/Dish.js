@@ -68,20 +68,20 @@ function Dish() {
                 </div>
             </Row>
             <Row className="my-3 justify-content-center">
-                <div className="col-8">
+                <div className="col-md-8 col-10">
                     <img style={{ position: "relative", height: "auto", width: "100%" }} src={Detail.img} alt="main" />
                 </div>
 
             </Row>
             <Row className="my-3 justify-content-center">
-                <div className="col-8">
+                <div className="col-md-8 col-10">
                     <h5>Miêu tả: </h5>
                     <p dangerouslySetInnerHTML={{ __html: Detail.des }} />
                 </div>
 
             </Row>
             <Row className="justify-content-center">
-                <div className="col-8">
+                <div className="col-md-8 col-10">
                     <table className="ingredient-table">
                         <tr>
                             <th>Thành phần</th>
@@ -98,7 +98,7 @@ function Dish() {
 
             </Row>
             <Row className="my-5 justify-content-center">
-                <div className="col-8">
+                <div className="col-md-8 col-10">
                     {Detail.cook_steps.map(cook_step =>
                         <div className = "my-3">
                             <h5>

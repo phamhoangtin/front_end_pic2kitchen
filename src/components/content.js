@@ -66,7 +66,10 @@ function Content() {
     }
     const handleChange = (event) => {
         setFile(event.target.files[0])
-        setFileText(event.target.files[0].name)
+        if (event.target.files[0].name.length > 37){
+            setFileText(event.target.files[0].name.slice(0,33) + '...')
+        }
+        else setFileText(event.target.files[0].name)
     }
     let content = (
         <div>
