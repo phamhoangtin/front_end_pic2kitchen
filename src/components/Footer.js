@@ -15,14 +15,14 @@ function Footer() {
                                 alt="logo"
                             />
                             <p>
-                                This is a text which should be in a bottom of the page and wrapped correctly
-                        </p>
+                               Nhận diện và gợi ý món ăn trong tầm tay
+                            </p>
                         </div>
                         <div className="col-sm-12 col-md-4" >
                             <h3>Contact us</h3>
                             <p><i className="fas fa-map-marker-alt"></i>227 Nguyễn Văn Cừ street, District 5, Ho Chi Minh city</p>
                             <p><i className="fas fa-phone"></i> Phone: +84 793860036</p>
-                            <p><i className="fas fa-envelope"></i> Email: <a href="mailto:hello@domain.com">nhluan.12tin@gmail.com</a></p>
+                            <p><i className="fas fa-envelope"></i> Email: <a href="mailto:pic2kitchen@gmail.com">pic2kitchen@gmail.com</a></p>
                             
                         </div>
                         <div className="col-sm-12 col-md-4 footer-social" >

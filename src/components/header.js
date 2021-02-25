@@ -16,7 +16,7 @@ function Header(props) {
   console.log('login ' + isLoggedIn);
   return (
     <Container fluid className="sticky-header px-0">
-      <navbar className="col-md-12 px-0 py-1">
+      <navbar className="col-md-12 pl-1 py-1">
         <div>
           <a className="navlink" href="/">
             <img
