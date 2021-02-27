@@ -4,7 +4,8 @@ import { Button, Modal, Form } from 'react-bootstrap';
 function Register(props) {
     const [registerInfo, setForm] = useState({
         email: "",
-        pass_word:""
+        pass_word:"",
+        name:""
     });
     const handleChange = (event) =>{
         event.persist()
@@ -84,7 +85,10 @@ function Register(props) {
                             We'll never share your email with anyone else.
                         </Form.Text>
                     </Form.Group>
-
+                    <Form.Group controlId="formBasicName">
+                        <Form.Label>Full Name</Form.Label>
+                        <Form.Control onChange={handleChange} name="name" type="text" placeholder="Enter your fullname" />
+                    </Form.Group>
                     <Form.Group controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
                         <Form.Control onChange={handleChange} name="pass_word" type="password" placeholder="Password" />
@@ -92,9 +96,6 @@ function Register(props) {
                     <Form.Group controlId="formBasicPassword">
                         <Form.Label>Confirm password</Form.Label>
                         <Form.Control onChange={handleChange} name="confirm_pass_word" type="password" placeholder="Password" />
-                    </Form.Group>
-                    <Form.Group controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Check me out" />
                     </Form.Group>
                     <div id="Modal footer" className="row" style={{justifyContent:"space-between"}}>
                     <Button id = "Sign Up"style={{marginLeft:"14px"}} variant="primary"  type="submit">

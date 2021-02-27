@@ -1,13 +1,13 @@
 import React from 'react';
-import {Container, Row} from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 //import axios from 'axios'
 const notLoginToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJFbWFpbCI6Im5vdCBsb2dpbiIsIklEIjotMX0.gQ_c05DxXLKvioGWwKjjp6KOuvzTOrKhE-v3eYeUX5U"
 function Header(props) {
   let isLoggedIn = false
-  if (localStorage.getItem('userInfo') !== null){
-   isLoggedIn = true
+  if (localStorage.getItem('userInfo') !== null) {
+    isLoggedIn = true
   }
-  const handleLogout=() =>{
+  const handleLogout = () => {
     localStorage.removeItem("userInfo")
     localStorage.removeItem("token")
     isLoggedIn = false
@@ -27,17 +27,28 @@ function Header(props) {
             />
           </a>
         </div>
+        <div className="col-lg-6 col-md-4 col-ms-3 col-1 custom-search-input">
+                <div class="input-group col-md-12">
+                    <input type="text" class="form-control" placeholder="Search" />
+                  
+                        <button class="searchButton btn btn-lg py-0" type="button">
+                        <i class="fas fa-search"></i>
+                        </button>
+
+                </div>
+            </div>
         <div className="col-lg-5 col-md-7 col-ms-8 col-10">
           <Row className="justify-content-end">
-            <a className="navlink" href="/dishes" > Dishes </a>
-            <a className="navlink" href="/about" >About</a>
-            {isLoggedIn
-              ? <a className="navlink" href={"/profile/"+localStorage.userInfo} variant="light">{localStorage.userInfo}</a>
-              : <button className="navlink" onClick={props.isLogin.bind(true)} variant="light">Log in</button>}
-            {isLoggedIn
-              ? <button className="navlink" onClick={handleLogout.bind()} variant="light">Log out</button>
-              : <button className="navlink" onClick={props.isRegis.bind(true)} variant="light">Sign up</button>}  
             
+              <a className="navlink" href="/dishes" > Dishes </a>
+              <a className="navlink" href="/about" >About</a>
+              {isLoggedIn
+                ? <a className="navlink" href={"/profile/" + localStorage.userInfo} variant="light">{localStorage.userInfo}</a>
+                : <button className="navlink" onClick={props.isLogin.bind(true)} variant="light">Log in</button>}
+              {isLoggedIn
+                ? <button className="navlink" onClick={handleLogout.bind()} variant="light">Log out</button>
+                : <button className="navlink" onClick={props.isRegis.bind(true)} variant="light">Sign up</button>}
+          
           </Row>
            
         </div>

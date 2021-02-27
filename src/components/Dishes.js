@@ -3,6 +3,7 @@ import { Container, Row } from 'react-bootstrap';
 import ListOfDishes from './ListOfDishes'
 import Axios from 'axios';
 let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJFbWFpbCI6Im5vdCBsb2dpbiIsIklEIjotMX0.gQ_c05DxXLKvioGWwKjjp6KOuvzTOrKhE-v3eYeUX5U"
+let isLoggin = false
 function Dishes() {
     const LIST_LENGHT = 8
     const [List, setList] = useState({
@@ -12,6 +13,7 @@ function Dishes() {
     });
     if (localStorage.getItem('userInfo') !== null) {
         token = localStorage.getItem('token')
+        isLoggin = true
     }
     useEffect(() => {
         const delay = ms => new Promise(res => setTimeout(res, ms));
@@ -60,7 +62,6 @@ function Dishes() {
             res.data.data.map((dish) => {
                 dish.img = dish.img.replace('555x240', '360x225')
             })
-
             setList((prevState) => ({
                 ...prevState,
                 history: res.data.data
@@ -69,7 +70,6 @@ function Dishes() {
             console.log(error.response)
         })
         // save response to variable
-      
     }, [])
     return (
         <Container fluid className="col-12 " >
@@ -103,7 +103,7 @@ function Dishes() {
                 </div>
 
             </Row>
-            <Row>
+            {isLoggin == true && <Row>
                 <div className="col-sm-12 col-md-3 pl-4">
                     <h4>History</h4>
                 </div>
@@ -115,7 +115,7 @@ function Dishes() {
                     </a>
                     </Row>
                 </div>
-            </Row>
+            </Row>}
         </Container>
     )
 }
