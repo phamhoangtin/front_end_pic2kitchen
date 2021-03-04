@@ -80,7 +80,7 @@ function Header(props) {
             />
           </a>
         </div>
-        <div className="col-xl-6 col-lg-6 col-md-5 col-sm-10 col-10 custom-search-input">
+        <div className="col-xl-6 col-lg-6 col-md-5 col-sm-10 col-10 custom-search-input px-2">
           <Row>
             <div className="search-input col-6 px-0">
               <input type="text" className="form-control" placeholder="Search" onChange={handleChange} />
@@ -91,13 +91,13 @@ function Header(props) {
               </div>
 
             </div>
-            <div className="col-1 px-0">
+            <div className="col-lg-1 col px-0">
               <button onClick={handleClick} className="searchButton btn btn-lg py-0" type="button">
                 <i className="fas fa-search"></i>
               </button>
             </div>
 
-            <div className="col-5 from-group px-0">
+            <div className="col from-group px-0">
               <select className="form-control search-option" onChange={handleSearch} data-live-search="true">
                 <option value="1" >Name</option>
                 <option value="2" >Ingredient</option>
