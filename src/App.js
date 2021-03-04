@@ -13,6 +13,7 @@ import Trending from './components/Trending';
 import History from './components/History';
 import Profile from './components/Profile';
 import Result from './components/Result';
+import Search from'./components/Search';
 function App(){
   const [login, setLogin] = useState(false);
   const [regis, setRegis] = useState(false);
@@ -39,6 +40,7 @@ function App(){
               <Route exact path="/profile/:id" component={Profile}/>
               <Route exact path="/result/:image" component={Result}/>
               <Route exact path="/result/:id/:image" component={Result}/>
+              <Route exact path="/search_result/" component={Search}/>
            </Switch>
           <Footer/>
         </div>
