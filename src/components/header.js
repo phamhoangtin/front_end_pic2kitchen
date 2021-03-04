@@ -100,7 +100,7 @@ function Header(props) {
             <div className="col from-group px-0">
               <select className="form-control search-option" onChange={handleSearch} data-live-search="true">
                 <option value="1" >Name</option>
-                <option value="2" >Ingredient</option>
+                <option value="2" disabled >Ingredient</option>
               </select>
             </div>
           </Row>
