@@ -33,7 +33,9 @@ function Header(props) {
     setSearchOption(e.target.value)
   }
   const handleClick = () => {
-    window.location.href = '/search_result?key=' + encodeURIComponent(searchText) + '&option=' + searchOption
+    if (searchText!=="") {
+      window.location.href = '/search_result?key=' + encodeURIComponent(searchText) + '&option=' + searchOption
+    }
   }
   // const firstUpdate = useRef(true);
   // useEffect (() => {
@@ -97,12 +99,12 @@ function Header(props) {
               </button>
             </div>
 
-            <div className="col from-group px-0">
+            {/* <div className="col from-group px-0">
               <select className="form-control search-option" onChange={handleSearch} data-live-search="true">
                 <option value="1" >Name</option>
                 <option value="2" disabled >Ingredient</option>
               </select>
-            </div>
+            </div> */}
           </Row>
         </div>
         <div className="col-xl-5 col-lg-5 col-md-6 col-12 px-0">
